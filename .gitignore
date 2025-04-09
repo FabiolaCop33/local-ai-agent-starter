@@ -1,7 +1,9 @@
-venv/
-.env
-__pycache__/
-*.pyc
-*.pyo
-*.log
-embeddings/
+venv/                    # Ignora el entorno virtual
+.env                     # Ignora variables de entorno sensibles
+__pycache__/             # Ignora archivos compilados de Python
+*.pyc                    # Ignora archivos de bytecode
+*.pyo                    # Otros archivos compilados
+*.log                    # Archivos de log
+embeddings/              # Carpeta con datos generados (puede crecer mucho)
+# Documentación local privada
+docs/manual_fase1.md     # ✅ Ignora tu bitácora personal # Ignora el entorno virtual
