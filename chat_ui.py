@@ -56,9 +56,6 @@ qa_chain = ConversationalRetrievalChain.from_llm(
     verbose=False
 )
 
-# 📥 Entrada del usuario
-user_input = st.text_input("Pregunta algo sobre Más por Menos...", placeholder="Ej. ¿Qué planes ofrecen?", key="input")
-
 # 💬 Procesar entrada
 if user_input:
     with st.spinner("Pensando..."):
@@ -76,3 +73,5 @@ if st.session_state.history:
             st.markdown(f'<div class="bot-bubble"><strong>{speaker}:</strong> {msg}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
+# 📥 Entrada del usuario (ahora al final)
+user_input = st.text_input("Escribe tu mensaje aquí:", placeholder="Ej. ¿Qué servicios ofrecen?", key="input")
