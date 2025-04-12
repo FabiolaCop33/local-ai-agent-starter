@@ -64,7 +64,7 @@ if user_input:
     with st.spinner("Pensando..."):
         response = qa_chain.invoke({"question": "Responde solo en español. " + user_input})
         st.session_state.history.append(("Tú", user_input))
-        st.session_state.history.append(("Agente", response))
+        st.session_state.history.append(("Agente", response["answer"]))
 
 # 🗂 Mostrar historial de conversación
 if st.session_state.history:
