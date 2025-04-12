@@ -31,6 +31,6 @@ while True:
         print("👋 Hasta luego.")
         break
     query = "Eres un asistente que responde solo en español, de forma clara y concisa. " + query
-    result = qa_chain.run(query)
+    result = qa_chain.invoke({"question": query})
     print("🤖:", result)
 
