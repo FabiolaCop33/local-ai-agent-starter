@@ -56,14 +56,7 @@ qa_chain = ConversationalRetrievalChain.from_llm(
     verbose=False
 )
 
-# 💬 Procesar entrada
-if user_input:
-    with st.spinner("Pensando..."):
-        response = qa_chain.invoke({"question": "Responde solo en español. " + user_input})
-        st.session_state.history.append(("Tú", user_input))
-        st.session_state.history.append(("Agente", response["answer"]))
-
-# 🗂 Mostrar historial de conversación
+# 📂 Mostrar historial de conversación
 if st.session_state.history:
     st.markdown('<div class="chat-container">', unsafe_allow_html=True)
     for speaker, msg in st.session_state.history:
@@ -73,5 +66,12 @@ if st.session_state.history:
             st.markdown(f'<div class="bot-bubble"><strong>{speaker}:</strong> {msg}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-# 📥 Entrada del usuario (ahora al final)
+# 📥 Entrada del usuario (al final)
 user_input = st.text_input("Escribe tu mensaje aquí:", placeholder="Ej. ¿Qué servicios ofrecen?", key="input")
+
+# 💬 Procesar entrada
+if user_input:
+    with st.spinner("Pensando..."):
+        response = qa_chain.invoke({"question": "Responde solo en español. " + user_input})
+        st.session_state.history.append(("Tú", user_input))
+        st.session_state.history.append(("Agente", response["answer"]))
